@@ -116,7 +116,12 @@ export const Sizes = {
     >
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
         <Button variant="primary" size="small" label="Small" />
-        <Button variant="primary" size="small" leftIcon={<AddIcon />} />
+        <Button
+          variant="primary"
+          size="small"
+          leftIcon={<AddIcon />}
+          ariaLabel="Small with only icon"
+        />
         <Button
           variant="primary"
           size="small"
@@ -126,7 +131,12 @@ export const Sizes = {
       </div>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
         <Button variant="primary" size="medium" label="Medium" />
-        <Button variant="primary" size="medium" leftIcon={<AddIcon />} />
+        <Button
+          variant="primary"
+          size="medium"
+          leftIcon={<AddIcon />}
+          ariaLabel="Medium with only icon"
+        />
         <Button
           variant="primary"
           size="medium"
@@ -136,7 +146,12 @@ export const Sizes = {
       </div>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
         <Button variant="primary" size="large" label="Large" />
-        <Button variant="primary" size="large" leftIcon={<AddIcon />} />
+        <Button
+          variant="primary"
+          size="large"
+          leftIcon={<AddIcon />}
+          ariaLabel="Large with only icon"
+        />
         <Button
           variant="primary"
           size="large"
