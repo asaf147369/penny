@@ -1,6 +1,20 @@
 @import "../styles/colors.scss";
 @import "../styles/typography.scss";
 
+@mixin button-size($height, $icon-size, $padding-inline) {
+    height: $height;
+    padding-inline: $padding-inline;
+
+    &.button--icon-only {
+        width: $height;
+    }
+
+    .button__icon svg {
+        width: $icon-size;
+        height: $icon-size;
+    }
+}
+
 .button {
     display: flex;
     align-items: center;
@@ -27,56 +41,18 @@
     }
 
     &--small {
+        @include button-size(24px, 16px, 8px);
         @include type-button-s;
-        min-height: 24px;
-        max-height: 24px;
-
-        &.button--icon-only {
-            min-width: 24px;
-            max-width: 24px;
-        }
-
-        .button__icon svg {
-            min-width: 16px;
-            max-width: 16px;
-            height: 16px;
-        }
     }
 
     &--medium {
+        @include button-size(40px, 24px, 16px);
         @include type-button-m;
-        min-height: 40px;
-        max-height: 40px;
-
-        &.button--icon-only {
-            min-width: 40px;
-            max-width: 40px;
-        }
-
-        .button__icon {
-            svg {
-                min-width: 24px;
-                max-width: 24px;
-                height: 24px;
-            }
-        }
     }
 
     &--large {
+        @include button-size(48px, 32px, 16px);
         @include type-button-l;
-        min-height: 48px;
-        max-height: 48px;
-
-        &.button--icon-only {
-            min-width: 48px;
-            max-width: 48px;
-        }
-
-        .button__icon svg {
-            min-width: 32px;
-            max-width: 32px;
-            height: 32px;
-        }
     }
 
     &--primary {
@@ -116,11 +92,9 @@
         gap: 4px;
         text-decoration: underline;
         text-underline-offset: 2px;
-        text-decoration-thickness: 0;
 
         &:hover:not(.button--disabled) {
             color: $brand-hover;
-            text-decoration: underline;
         }
     }
 

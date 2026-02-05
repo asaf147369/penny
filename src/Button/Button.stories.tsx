@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from './Button';
 import AddIcon from '../icons/AddIcon.svg';
+import AddIconBlack from '../icons/AddIconBlack.svg';
 
 export default {
   title: 'Design System/Button',
@@ -30,14 +31,14 @@ export default {
 export const Primary = {
   args: {
     variant: 'primary',
-    children: 'New payment',
+    label: 'New payment',
   },
 };
 
 export const PrimaryWithIcon = {
   args: {
     variant: 'primary',
-    children: 'New payment',
+    label: 'New payment',
     leftIcon: <AddIcon />,
   },
 };
@@ -45,14 +46,14 @@ export const PrimaryWithIcon = {
 export const Danger = {
   args: {
     variant: 'danger',
-    children: 'Delete',
+    label: 'Delete',
   },
 };
 
 export const DangerWithIcon = {
   args: {
     variant: 'danger',
-    children: 'Delete',
+    label: 'Delete',
     leftIcon: <AddIcon />,
   },
 };
@@ -67,7 +68,7 @@ export const IconOnly = {
 export const Disabled = {
   args: {
     variant: 'primary',
-    children: 'Disabled',
+    label: 'Disabled',
     disabled: true,
   },
 };
@@ -75,7 +76,7 @@ export const Disabled = {
 export const Tertiary = {
   args: {
     variant: 'tertiary',
-    children: 'Tertiary',
+    label: 'Tertiary',
   },
 };
 
@@ -83,14 +84,14 @@ export const TertiaryWithIcon = {
   args: {
     variant: 'tertiary',
     label: 'Tertiary',
-    leftIcon: <AddIcon />,
+    leftIcon: <AddIconBlack />,
   },
 };
 
 export const WithTwoIcons = {
   args: {
     variant: 'primary',
-    children: 'Next',
+    label: 'Next',
     leftIcon: <AddIcon />,
     rightIcon: <AddIcon />,
   },
@@ -99,7 +100,7 @@ export const WithTwoIcons = {
 export const Naked = {
   args: {
     variant: 'naked',
-    children: 'Pay',
+    label: 'Pay',
   },
 };
 
@@ -114,31 +115,34 @@ export const Sizes = {
       }}
     >
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-        <Button variant="primary" size="small">
-          Small
-        </Button>
+        <Button variant="primary" size="small" label="Small" />
         <Button variant="primary" size="small" leftIcon={<AddIcon />} />
-        <Button variant="primary" size="small" leftIcon={<AddIcon />}>
-          small with icon
-        </Button>
+        <Button
+          variant="primary"
+          size="small"
+          leftIcon={<AddIcon />}
+          label="Small with icon"
+        />
       </div>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-        <Button variant="primary" size="medium">
-          Medium
-        </Button>
+        <Button variant="primary" size="medium" label="Medium" />
         <Button variant="primary" size="medium" leftIcon={<AddIcon />} />
-        <Button variant="primary" size="medium" leftIcon={<AddIcon />}>
-          medium with icon
-        </Button>
+        <Button
+          variant="primary"
+          size="medium"
+          leftIcon={<AddIcon />}
+          label="Medium with icon"
+        />
       </div>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-        <Button variant="primary" size="large">
-          Large
-        </Button>
+        <Button variant="primary" size="large" label="Large" />
         <Button variant="primary" size="large" leftIcon={<AddIcon />} />
-        <Button variant="primary" size="large" leftIcon={<AddIcon />}>
-          large with icon
-        </Button>
+        <Button
+          variant="primary"
+          size="large"
+          leftIcon={<AddIcon />}
+          label="Large with icon"
+        />
       </div>
     </div>
   ),

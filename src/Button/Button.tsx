@@ -10,7 +10,6 @@ export interface ButtonProps
   size?: ButtonSize;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  children?: React.ReactNode;
   label?: string;
 }
 
@@ -22,7 +21,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       leftIcon,
       rightIcon,
       disabled,
-      children,
       label,
       className = '',
       onClick,
@@ -31,11 +29,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const isDisabled = disabled;
-    const content = children || label || '';
     const hasLeftIcon = !!leftIcon;
     const hasRightIcon = !!rightIcon;
     const hasAnyIcon = hasLeftIcon || hasRightIcon;
-    const isIconOnly = hasAnyIcon && !content;
+    const isIconOnly = hasAnyIcon && !label;
     const state: 'enabled' | 'disabled' = isDisabled ? 'disabled' : 'enabled';
 
     const baseClass = 'button';
@@ -70,10 +67,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled}
         onClick={handleClick}
         data-state={state}
+        aria-label={isIconOnly ? label || 'button' : undefined}
         {...rest}
       >
         {hasLeftIcon && <span className="button__icon">{leftIcon}</span>}
-        {content ? <span className="button__content">{content}</span> : null}
+        {label ? <span className="button__content">{label}</span> : null}
         {hasRightIcon && <span className="button__icon">{rightIcon}</span>}
       </button>
     );
