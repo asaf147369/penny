@@ -1,0 +1,33 @@
+$font-family-base:
+    "Poppins",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$type-size-s: 10px;
+$type-line-s: 16px;
+$type-size-m: 14px;
+$type-line-m: 20px;
+$type-size-l: 16px;
+$type-line-l: 24px;
+
+@mixin type-button-s {
+    font-weight: $font-weight-semibold;
+    font-size: $type-size-s;
+    line-height: $type-line-s;
+}
+
+@mixin type-button-m {
+    font-weight: $font-weight-semibold;
+    font-size: $type-size-m;
+    line-height: $type-line-m;
+}
+
+@mixin type-button-l {
+    font-weight: $font-weight-semibold;
+    font-size: $type-size-l;
+    line-height: $type-line-l;
+}
