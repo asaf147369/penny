@@ -1,0 +1,107 @@
+@import "../styles/colors.scss";
+@import "../styles/typography.scss";
+
+@mixin button-size($height, $icon-size, $padding-inline) {
+    height: $height;
+    padding-inline: $padding-inline;
+
+    &.button--icon-only {
+        width: $height;
+    }
+
+    .button__icon svg {
+        width: $icon-size;
+        height: $icon-size;
+    }
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: $font-family-base;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+    outline: none;
+    border-radius: 8px;
+    padding-inline: 8px;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+    .button__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--small {
+        @include button-size(24px, 16px, 8px);
+        @include type-button-s;
+    }
+
+    &--medium {
+        @include button-size(40px, 24px, 16px);
+        @include type-button-m;
+    }
+
+    &--large {
+        @include button-size(48px, 32px, 16px);
+        @include type-button-l;
+    }
+
+    &--primary {
+        background-color: $brand;
+        color: $white;
+
+        &:hover:not(.button--disabled) {
+            background-color: $brand-hover;
+        }
+    }
+
+    &--danger {
+        background-color: $danger;
+        color: $white;
+
+        &:hover:not(.button--disabled) {
+            background-color: $danger-hover;
+        }
+    }
+
+    &--tertiary {
+        background-color: $white;
+        color: $text-primary;
+        border: 1px solid $tertiary-border;
+
+        &:hover:not(.button--disabled) {
+            border-color: $tertiary-hover-border;
+            background-color: $tertiary-hover-background;
+        }
+    }
+
+    &--naked {
+        background-color: transparent;
+        color: $brand;
+        padding: 0;
+        min-height: auto;
+        gap: 4px;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+
+        &:hover:not(.button--disabled) {
+            color: $brand-hover;
+        }
+    }
+
+    &--disabled,
+    &[data-state="disabled"] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
