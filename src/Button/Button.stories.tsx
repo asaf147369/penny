@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './Button';
-import { AddIcon } from '../AddIcon';
+import AddIcon from '../icons/AddIcon.svg';
 
 export default {
   title: 'Design System/Button',

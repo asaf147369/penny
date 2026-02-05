@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "vite-plugin-svgr": "^4.5.0",
     "@chromatic-com/storybook": "^3.2.2",
     "@eslint/js": "^9.14.0",
     "@storybook/addon-essentials": "^8.4.2",
