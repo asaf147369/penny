@@ -1,5 +1,5 @@
-@import "../Styles/colors.scss";
-@import "../Styles/typography.scss";
+@import "../styles/colors.scss";
+@import "../styles/typography.scss";
 
 .button {
     display: flex;
@@ -85,6 +85,15 @@
 
         &:hover:not(.button--disabled) {
             background-color: $brand-hover;
+        }
+    }
+
+    &--danger {
+        background-color: $danger;
+        color: $white;
+
+        &:hover:not(.button--disabled) {
+            background-color: $danger-hover;
         }
     }
 

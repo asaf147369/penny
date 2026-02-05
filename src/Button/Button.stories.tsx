@@ -42,6 +42,21 @@ export const PrimaryWithIcon = {
   },
 };
 
+export const Danger = {
+  args: {
+    variant: 'danger',
+    children: 'Delete',
+  },
+};
+
+export const DangerWithIcon = {
+  args: {
+    variant: 'danger',
+    children: 'Delete',
+    leftIcon: <AddIcon />,
+  },
+};
+
 export const IconOnly = {
   args: {
     variant: 'primary',

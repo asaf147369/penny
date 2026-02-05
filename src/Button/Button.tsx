@@ -1,7 +1,7 @@
 import React from 'react';
 import './Button.scss';
 
-export type ButtonType = 'primary' | 'tertiary' | 'naked';
+export type ButtonType = 'primary' | 'tertiary' | 'naked' | 'danger';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
 export interface ButtonProps
