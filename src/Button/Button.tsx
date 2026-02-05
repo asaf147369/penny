@@ -10,7 +10,6 @@ export interface ButtonProps
   size?: ButtonSize;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  active?: boolean;
   children?: React.ReactNode;
   label?: string;
 }
@@ -22,7 +21,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size = 'medium',
       leftIcon,
       rightIcon,
-      active = false,
       disabled,
       children,
       label,
@@ -44,18 +42,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const typeClass = `${baseClass}--${variant}`;
     const sizeClass = `${baseClass}--${size}`;
     const iconOnlyClass = isIconOnly ? `${baseClass}--icon-only` : '';
-    const activeClass = active ? `${baseClass}--active` : '';
     const disabledClass = isDisabled ? `${baseClass}--disabled` : '';
-    const hasIconClass = hasAnyIcon ? `${baseClass}--has-icon` : '';
 
     const classes = [
       baseClass,
       typeClass,
       sizeClass,
       iconOnlyClass,
-      activeClass,
       disabledClass,
-      hasIconClass,
       className,
     ]
       .filter(Boolean)
