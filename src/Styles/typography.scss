@@ -31,3 +31,9 @@ $type-line-l: 24px;
     font-size: $type-size-l;
     line-height: $type-line-l;
 }
+
+@mixin modal-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+}

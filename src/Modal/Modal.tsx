@@ -2,6 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import { Button } from '../Button/Button';
 import DangerIcon from '../icons/DangerIcon.svg';
+import CloseIcon from '../icons/CloseIcon.svg';
 import './Modal.scss';
 
 export interface ModalProps {
@@ -63,9 +64,15 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
         {renderIcon() && (
           <span className="modal-header__icon">{renderIcon()}</span>
         )}
-        <h2 className="modal-title">{title}</h2>
+        <h2 className="modal-header__title">{title}</h2>
       </div>
-      <Button variant="naked" onClick={onClose} label="✕" ariaLabel="Close" />
+      <Button
+        variant="tertiary"
+        size="large"
+        onClick={onClose}
+        ariaLabel="Close"
+        leftIcon={<CloseIcon />}
+      />
     </header>
   );
 };

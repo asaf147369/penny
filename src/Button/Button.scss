@@ -51,7 +51,7 @@
     }
 
     &--large {
-        @include button-size(48px, 32px, 16px);
+        @include button-size(40px, 24px, 16px);
         @include type-button-l;
     }
 
@@ -81,6 +81,10 @@
         &:hover:not(.button--disabled) {
             border-color: $tertiary-hover-border;
             background-color: $tertiary-hover-background;
+        }
+
+        @media (max-width: 768px) {
+            border: none;
         }
     }
 
