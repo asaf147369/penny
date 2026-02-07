@@ -1,6 +1,8 @@
 @import "../styles/colors.scss";
 @import "../styles/typography.scss";
 
+$button-tertiary-outline-breakpoint: 768px;
+
 @mixin button-size($height, $icon-size, $padding-inline) {
     height: $height;
     padding-inline: $padding-inline;
@@ -83,13 +85,15 @@
         color: $text-primary;
         border: 1px solid $tertiary-border;
 
-        &:hover:not(.button--disabled) {
-            border-color: $tertiary-hover-border;
-            background-color: $tertiary-hover-background;
+        @media (max-width: 767px) {
+            &.button--icon-only {
+                border: none;
+            }
         }
 
-        @media (max-width: 768px) {
-            border: none;
+        &:hover:not(.button--disabled) {
+            background-color: $tertiary-hover-background;
+            border-color: $tertiary-hover-border;
         }
     }
 

@@ -100,7 +100,9 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
         {renderIcon() && (
           <span className="modal-header__icon">{renderIcon()}</span>
         )}
-        <h2 className="modal-header__title">{title}</h2>
+        <h2 id="modal-title" className="modal-header__title">
+          {title}
+        </h2>
       </div>
       <Button
         variant="tertiary"

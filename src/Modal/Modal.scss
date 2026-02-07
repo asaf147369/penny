@@ -102,7 +102,12 @@ body:has(.modal-overlay) {
     display: flex;
     justify-content: space-between;
     padding-block: 24px;
+    gap: 16px;
     button {
-        min-width: 104px;
+        flex: 1;
+        @media (min-width: 768px) {
+            min-width: 104px;
+            flex: none;
+        }
     }
 }
