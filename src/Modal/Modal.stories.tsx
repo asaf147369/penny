@@ -11,7 +11,6 @@ const meta: Meta<typeof Modal> = {
   tags: ['autodocs'],
   argTypes: {
     isOpen: { control: 'boolean' },
-    size: { control: 'select', options: ['small', 'medium', 'large'] },
     onClose: { action: 'closed' },
   },
   args: { onClose: fn() },
@@ -31,13 +30,8 @@ function LaunchModal({
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Button
-        variant="primary"
-        label={label}
-        onClick={() => setOpen(true)}
-        style={{ marginRight: 8, marginBottom: 8 }}
-      />
-      <Modal isOpen={open} onClose={() => setOpen(false)} size="medium">
+      <Button variant="primary" label={label} onClick={() => setOpen(true)} />
+      <Modal isOpen={open} onClose={() => setOpen(false)}>
         {children(() => setOpen(false))}
       </Modal>
     </>
@@ -53,6 +47,10 @@ export const Default: Story = {
           <Modal.Body>
             <p>Click outside or press Escape to close.</p>
           </Modal.Body>
+          <Modal.Footer>
+            <Button variant="tertiary" label="Cancel" onClick={onClose} />
+            <Button variant="primary" label="Confirm" onClick={fn()} />
+          </Modal.Footer>
         </>
       )}
     </LaunchModal>
@@ -62,16 +60,22 @@ export const Default: Story = {
 export const NoHeader: Story = {
   render: () => (
     <LaunchModal label="Open (no header)">
-      {() => (
-        <Modal.Body>
-          <p>No header. Click outside to close.</p>
-        </Modal.Body>
+      {(onClose) => (
+        <>
+          <Modal.Body>
+            <p>No header. Click outside to close.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="tertiary" label="Cancel" onClick={onClose} />
+            <Button variant="primary" label="Delete" onClick={fn()} />
+          </Modal.Footer>
+        </>
       )}
     </LaunchModal>
   ),
 };
 
-export const WithFooter: Story = {
+export const NoFooter: Story = {
   render: () => (
     <LaunchModal label="Confirm action">
       {(onClose) => (
@@ -80,37 +84,45 @@ export const WithFooter: Story = {
           <Modal.Body>
             <p>Are you sure? This cannot be undone.</p>
           </Modal.Body>
-          <Modal.Footer>
-            <div
-              style={{
-                display: 'flex',
-                gap: 12,
-                justifyContent: 'flex-end',
-              }}
-            >
-              <Button variant="tertiary" label="Cancel" onClick={onClose} />
-              <Button variant="primary" label="Confirm" onClick={fn()} />
-            </div>
-          </Modal.Footer>
         </>
       )}
     </LaunchModal>
   ),
 };
 
-export const HeaderDanger: Story = {
+export const NoHeaderNoFooter: Story = {
   render: () => (
-    <LaunchModal label="Delete item">
+    <LaunchModal label="Open (no header and no footer)">
+      {() => (
+        <Modal.Body>
+          <p>No header and no footer. Click outside to close.</p>
+        </Modal.Body>
+      )}
+    </LaunchModal>
+  ),
+};
+
+export const Danger: Story = {
+  render: () => (
+    <LaunchModal label="Open danger modal">
       {(onClose) => (
         <>
           <Modal.Header
-            title="Delete item"
+            title="Modal header"
             onClose={onClose}
             variant="danger"
           />
           <Modal.Body>
-            <p>Danger variant for destructive actions.</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing Nullam a arcu
+              est. Nulla facilisi. Donec nec sem aliquet, laoreet nisi et,
+              bibendum tellus. Aenean sed nibh lorem.
+            </p>
           </Modal.Body>
+          <Modal.Footer>
+            <Button variant="tertiary" label="Cancel" onClick={onClose} />
+            <Button variant="danger" label="Delete" onClick={fn()} />
+          </Modal.Footer>
         </>
       )}
     </LaunchModal>
@@ -173,16 +185,8 @@ export const WithFormContent: Story = {
             </form>
           </Modal.Body>
           <Modal.Footer>
-            <div
-              style={{
-                display: 'flex',
-                gap: 12,
-                justifyContent: 'flex-end',
-              }}
-            >
-              <Button variant="tertiary" label="Cancel" onClick={onClose} />
-              <Button variant="primary" label="Save" onClick={fn()} />
-            </div>
+            <Button variant="tertiary" label="Cancel" onClick={onClose} />
+            <Button variant="primary" label="Save" onClick={fn()} />
           </Modal.Footer>
         </>
       )}

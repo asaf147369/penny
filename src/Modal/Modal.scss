@@ -8,62 +8,47 @@ body:has(.modal-overlay) {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: stretch;
     z-index: 1000;
-    padding: 20px;
+    padding: 0;
+
+    @media (min-width: 768px) {
+        align-items: flex-start;
+        padding-top: 32px;
+        justify-content: center;
+    }
 }
 
 .modal-container {
     background-color: $white;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px #2121241a;
     display: flex;
     flex-direction: column;
     max-height: 90vh;
     width: 100%;
-
-    &--small {
-        max-width: 400px;
+    max-width: 100%;
+    border: 1px solid $tertiary-border;
+    padding-inline: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    &:has(.modal-header) {
+        padding-top: 0;
     }
-    &--medium {
-        max-width: 600px;
+    &:has(.modal-footer) {
+        padding-bottom: 0;
     }
-    &--large {
-        max-width: 800px;
-    }
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 24px;
-    border-bottom: 1px solid $tertiary-border;
-    svg {
-        width: 32px;
-        height: 32px;
-    }
-    &__left {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-    }
-
-    &__title {
-        @include modal-title;
-        margin: 0;
-    }
-}
-
-.modal-container {
-    width: calc(100% - 32px);
-    margin: 16px;
 
     @media (min-width: 768px) {
-        margin: 0;
+        border-radius: 12px;
+        border: none;
+        width: auto;
+        max-width: 600px;
+        min-width: 550px;
+
         &--small {
             max-width: 400px;
         }
@@ -76,15 +61,48 @@ body:has(.modal-overlay) {
     }
 }
 
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 28px;
+    svg {
+        width: 32px;
+        height: 32px;
+    }
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    &__title {
+        @include modal-title;
+        margin: 0;
+    }
+}
+
 .modal-body {
-    padding: 24px;
     overflow-y: auto;
+    color: $text-primary;
+
+    p {
+        margin: 0;
+    }
 }
 
 .modal-footer {
-    padding: 16px 24px;
-    border-top: 1px solid $tertiary-border;
     display: flex;
-    justify-content: flex-end;
-    gap: 12px;
+    justify-content: space-between;
+    padding-block: 24px;
+    button {
+        min-width: 104px;
+    }
 }

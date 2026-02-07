@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Button } from '../Button/Button';
 import DangerIcon from '../icons/DangerIcon.svg';
@@ -8,8 +8,8 @@ import './Modal.scss';
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onConfirm?: () => void;
   children: React.ReactNode;
-  size?: 'small' | 'medium' | 'large';
 }
 
 export interface ModalHeaderProps {
@@ -19,21 +19,57 @@ export interface ModalHeaderProps {
   icon?: React.ReactNode;
 }
 
-export const Modal = ({
-  isOpen,
-  onClose,
-  children,
-  size = 'medium',
-}: ModalProps) => {
+export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    modalRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+
+      if (e.key === 'Tab') {
+        const focusableElements = modalRef.current?.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        ) as NodeListOf<HTMLElement>;
+
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div
-        className={`modal-container modal-container--${size}`}
-        onClick={(e) => e.stopPropagation()}
+        ref={modalRef}
+        className="modal-container"
+        tabIndex={-1}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modal-title"
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>
