@@ -28,6 +28,11 @@
     user-select: none;
     outline: none;
     border-radius: 8px;
+
+    &:focus-visible {
+        outline: 2px solid $brand;
+        outline-offset: 2px;
+    }
     padding-inline: 8px;
     transition:
         background-color 0.2s ease,
@@ -51,7 +56,7 @@
     }
 
     &--large {
-        @include button-size(48px, 32px, 16px);
+        @include button-size(40px, 24px, 16px);
         @include type-button-l;
     }
 
@@ -77,6 +82,12 @@
         background-color: $white;
         color: $text-primary;
         border: 1px solid $tertiary-border;
+
+        @media (max-width: 767px) {
+            &.button--icon-only {
+                border: none;
+            }
+        }
 
         &:hover:not(.button--disabled) {
             border-color: $tertiary-hover-border;
