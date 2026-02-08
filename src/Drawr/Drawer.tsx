@@ -32,11 +32,18 @@ export const Drawer = ({
   };
 
   useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onCloseWithAnimation();
+    };
     if (isOpen) {
       setIsClosing(false);
+
+      window.addEventListener('keydown', handleEsc);
+
       drawerRef.current?.focus();
     }
     return () => {
+      window.removeEventListener('keydown', handleEsc);
       if (closeTimeoutRef.current) {
         clearTimeout(closeTimeoutRef.current);
         closeTimeoutRef.current = null;
