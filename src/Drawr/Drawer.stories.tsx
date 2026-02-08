@@ -98,3 +98,193 @@ export const Open: Story = {
     );
   },
 };
+
+export const WithFooter: Story = {
+  render: function OpenDrawerWithFooter() {
+    const handleClose = fn();
+    return (
+      <Drawer
+        isOpen={true}
+        onClose={handleClose}
+        title="Vendor details"
+        footer={
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button label="Save" variant="primary" onClick={handleClose} />
+            <Button label="Cancel" variant="tertiary" onClick={handleClose} />
+          </div>
+        }
+      >
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+      </Drawer>
+    );
+  },
+};
+
+export const ScrollableWithFooter: Story = {
+  render: function ScrollableDrawerWithFooter() {
+    const handleClose = fn();
+    return (
+      <Drawer
+        isOpen={true}
+        onClose={handleClose}
+        title="Vendor details"
+        footer={
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button label="Save" variant="primary" onClick={handleClose} />
+            <Button label="Cancel" variant="tertiary" onClick={handleClose} />
+          </div>
+        }
+      >
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Header>Payments overview</Card.Header>
+          <Card.Body>
+            <div className="payments-grid">
+              <p>
+                <strong>Open balance:</strong> $17,945.00
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+      </Drawer>
+    );
+  },
+};

@@ -70,7 +70,7 @@ body:has(.modal-overlay) {
     }
 
     &__title {
-        @include modal-title;
+        @include body-xl;
         margin: 0;
     }
 }
