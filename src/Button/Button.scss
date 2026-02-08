@@ -30,8 +30,8 @@
     border-radius: 8px;
 
     &:focus-visible {
-        outline: 2px solid $brand;
-        outline-offset: 2px;
+        outline: 1px solid $brand;
+        outline-offset: 1px;
     }
     padding-inline: 8px;
     transition:
@@ -47,17 +47,17 @@
 
     &--small {
         @include button-size(24px, 16px, 8px);
-        @include type-button-s;
+        @include body-s;
     }
 
     &--medium {
         @include button-size(40px, 24px, 16px);
-        @include type-button-m;
+        @include body-m;
     }
 
     &--large {
         @include button-size(40px, 24px, 16px);
-        @include type-button-l;
+        @include body-l;
     }
 
     &--primary {

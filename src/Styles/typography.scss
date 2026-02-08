@@ -13,27 +13,29 @@ $type-size-m: 14px;
 $type-line-m: 20px;
 $type-size-l: 16px;
 $type-line-l: 24px;
+$type-size-xl: 24px;
+$type-line-xl: 32px;
 
-@mixin type-button-s {
-    font-weight: $font-weight-semibold;
-    font-size: $type-size-s;
-    line-height: $type-line-s;
-}
-
-@mixin type-button-m {
+@mixin body-m {
     font-weight: $font-weight-semibold;
     font-size: $type-size-m;
     line-height: $type-line-m;
 }
 
-@mixin type-button-l {
+@mixin body-s {
+    font-weight: $font-weight-semibold;
+    font-size: $type-size-s;
+    line-height: $type-line-s;
+}
+
+@mixin body-l {
     font-weight: $font-weight-semibold;
     font-size: $type-size-l;
     line-height: $type-line-l;
 }
 
 @mixin modal-title {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 32px;
+    font-weight: $font-weight-semibold;
+    font-size: $type-size-xl;
+    line-height: $type-line-xl;
 }
