@@ -1,5 +1,5 @@
-@import "../styles/colors.scss";
-@import "../styles/typography.scss";
+@import "../Styles/colors.scss";
+@import "../Styles/typography.scss";
 
 @mixin button-size($height, $icon-size, $padding-inline) {
     height: $height;
