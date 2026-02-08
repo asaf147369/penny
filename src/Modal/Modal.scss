@@ -30,6 +30,7 @@ body:has(.modal-overlay) {
     gap: 24px;
     max-height: 90vh;
     max-width: 100%;
+    width: 100%;
     border: 1px solid $tertiary-border;
     padding-inline: 24px;
     padding-bottom: 24px;
@@ -43,6 +44,7 @@ body:has(.modal-overlay) {
         border-radius: 16px;
         max-width: 600px;
         min-width: 550px;
+        width: auto;
     }
 }
 
