@@ -29,19 +29,19 @@ export const PaymentsOverview: Story = {
     <Card>
       <Card.Header>Payments overview</Card.Header>
       <Card.Body>
-        <div className="card-body__row">
-          <div className="card-body__item">
+        <div>
+          <p>
             <strong>Open balance:</strong>
             <span>$17,945.00</span>
-          </div>
-          <div className="card-body__item">
+          </p>
+          <p>
             <strong>Scheduled:</strong>
             <span>$466.00</span>
-          </div>
-          <div className="card-body__item">
+          </p>
+          <p>
             <strong>Paid:</strong>
             <span>$500.00</span>
-          </div>
+          </p>
         </div>
       </Card.Body>
     </Card>
@@ -52,10 +52,10 @@ export const SummaryCard: Story = {
   render: () => (
     <Card>
       <Card.Body>
-        <div className="card-body__summary">
-          <p className="card-body__summary-label">Open balance</p>
-          <p className="card-body__summary-value">$17,945.00</p>
-          <p className="card-body__summary-meta">
+        <div>
+          <p>Open balance</p>
+          <p>$17,945.00</p>
+          <p>
             11 bills{' '}
             <a href="#" onClick={(e) => e.preventDefault()}>
               View

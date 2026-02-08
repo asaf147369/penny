@@ -20,18 +20,37 @@ const CardComponent = React.forwardRef<HTMLDivElement, CardProps>(
     },
     ref,
   ) {
+    const isClickable = !!onClick;
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (!isClickable) return;
+      // Trigger click on Enter or Space
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        onClick();
+      }
+    };
+
     const classes = [
       'card-container',
       `card-container--${variant}`,
       `card-container--${size}`,
-      onClick ? 'card-container--clickable' : '',
+      isClickable ? 'card-container--clickable' : '',
       className,
     ]
       .filter(Boolean)
       .join(' ');
 
     return (
-      <div ref={ref} className={classes} onClick={onClick} {...rest}>
+      <div
+        ref={ref}
+        className={classes}
+        onClick={onClick}
+        onKeyDown={handleKeyDown}
+        role={isClickable ? 'button' : undefined}
+        tabIndex={isClickable ? 0 : undefined}
+        {...rest}
+      >
         {children}
       </div>
     );

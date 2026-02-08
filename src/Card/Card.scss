@@ -27,9 +27,17 @@
 
     &--clickable {
         cursor: pointer;
+        transition:
+            box-shadow 0.2s ease,
+            border-color 0.2s ease;
         &:hover {
             border-color: $tertiary-hover-border;
             background-color: $tertiary-hover-background;
+        }
+        &:focus-visible {
+            outline: none;
+            border-color: $brand;
+            box-shadow: 0 0 0 1px $brand-hover;
         }
     }
 
