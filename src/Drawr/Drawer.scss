@@ -1,0 +1,57 @@
+@import "../styles/colors.scss";
+
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+}
+
+.drawer-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 600px;
+    background-color: #f7f7f8;
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+
+.drawer-header {
+    background-color: $white;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $tertiary-border;
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+    }
+}
+
+.drawer-body {
+    padding: 24px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
