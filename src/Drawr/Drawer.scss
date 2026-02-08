@@ -1,0 +1,108 @@
+@import "../styles/colors.scss";
+@import "../styles/typography.scss";
+
+body:has(.drawer-overlay) {
+    overflow: hidden;
+}
+
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out forwards;
+
+    &--closing {
+        animation: fadeOut 0.2s ease-out forwards;
+    }
+}
+
+.drawer-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    position: relative;
+    overflow-y: auto;
+    animation: slideInRight 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+
+    &--closing {
+        animation: slideOutRight 0.3s cubic-bezier(0, 0, 0.2, 1) forwards;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+
+.drawer-header {
+    background-color: $white;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $border-static;
+
+    &__title {
+        @include body-xl;
+        margin: 0;
+    }
+}
+
+.drawer-body {
+    padding: 24px;
+    flex: 1;
+}
+
+.drawer-footer {
+    padding: 24px 32px;
+    border-top: 1px solid $border-static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: sticky;
+
+    @media (min-width: 768px) {
+        position: static;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
